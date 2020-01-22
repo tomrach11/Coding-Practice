@@ -134,6 +134,24 @@ function createIntervals(data) {
 console.log(createIntervals([1, 2, 3, 4, 5, 7, 8, 12])); // [[1, 5], [7, 8], [12, 12]], "First")
 console.log(createIntervals([1, 2, 3, 6, 7, 8, 4, 5])); // [[1, 8]], "Second")
 
+//Double substring
+function doubleSubstring(line) {
+    var count = 0;
+    for (var i = 0; i < line.length; i++) {
+        for (var j = 1; j < line.length; j++ ) {
+            if (i > j) {
+                tempString = line.slice(i, j + 1);
+                if (line.includes(tempString)) {
+
+                }
+            }
+        }
+    }
+}
+
+console.log(doubleSubstring('aaaa'));// 2, "First")
+console.log(doubleSubstring('abc'));// 0, "Second")
+console.log(doubleSubstring('aghtfghkofgh'));// 3, "Third")
 
 
 
