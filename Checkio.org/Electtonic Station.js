@@ -134,7 +134,33 @@ function createIntervals(data) {
 console.log(createIntervals([1, 2, 3, 4, 5, 7, 8, 12])); // [[1, 5], [7, 8], [12, 12]], "First")
 console.log(createIntervals([1, 2, 3, 6, 7, 8, 4, 5])); // [[1, 8]], "Second")
 
-//Double substring
+//Caesar Cipher
+function toEncrypt(text, delta) {
+    var alphabet = "abcdefghijklmnopqrstuvwxyz"
+    var text_arr = text.split(" ");
+    var new_arr = [];
+    text_arr.forEach (function(word) {
+        var new_word = "";
+        for (var i = 0; i < word.length; i++) {
+            var new_index = (alphabet.indexOf(word[i]) + delta) % 26;
+            if (new_index < 0) {
+                new_index += 26;
+            }
+            new_word += alphabet[new_index];
+        }
+        new_arr.push(new_word);
+    });
+    return new_arr.join(" ");
+}
+
+console.log(toEncrypt("a b c", 3)) // "d e f")
+console.log(toEncrypt("a b c", -3)) // "x y z")
+console.log(toEncrypt("simple text", 16)) // "iycfbu junj")
+console.log(toEncrypt("important text", 10)) // "swzybdkxd dohd")
+console.log(toEncrypt("state secret", -13)) // "fgngr frperg")
+
+
+//Double substring **** still not working
 function doubleSubstring(line) {
     var count = 0;
     for (var i = 0; i < line.length; i++) {
@@ -152,9 +178,6 @@ function doubleSubstring(line) {
 console.log(doubleSubstring('aaaa'));// 2, "First")
 console.log(doubleSubstring('abc'));// 0, "Second")
 console.log(doubleSubstring('aghtfghkofgh'));// 3, "Third")
-
-
-
 
 //super root
 function superRoot(number) {

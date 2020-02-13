@@ -94,7 +94,7 @@ console.log(pyramid_sum([3, 7, 2, 11])); //#=> [[41], [19, 22], [10, 9, 13], [3,
 // Write a method all_else_equal that takes in an array of numbers. The method should return the element of the array that is equal to half of the sum of all elements of the array. If there is no such element, the method should return nil.
 function all_else_equal(arr) {
     var sum = 0;
-    arr.forEach(function(num){
+    arr.forEach(function(num) {
         sum += num;
     });
     var half = sum / 2;
