@@ -159,18 +159,29 @@ console.log(toEncrypt("simple text", 16)) // "iycfbu junj")
 console.log(toEncrypt("important text", 10)) // "swzybdkxd dohd")
 console.log(toEncrypt("state secret", -13)) // "fgngr frperg")
 
+//repeat decimal
+function convert(numerator, denominator) {
+    var devided = numerator/denominator;
+    var decimal = devided % 1;
+
+}
+
+console.log(convert(1, 3));// "0.(3)")
+console.log(convert(5, 3));// "1.(6)")
+console.log(convert(3, 8));// "0.375")
+console.log(convert(7, 11));// "0.(63)")
+console.log(convert(29, 12));// "2.41(6)")
+console.log(convert(11, 7));// "1.(571428)")
+console.log(convert(0, 117));// "0.")
+
 
 //Double substring **** still not working
 function doubleSubstring(line) {
     var count = 0;
+    var longest;
     for (var i = 0; i < line.length; i++) {
         for (var j = 1; j < line.length; j++ ) {
-            if (i > j) {
-                tempString = line.slice(i, j + 1);
-                if (line.includes(tempString)) {
 
-                }
-            }
         }
     }
 }
