@@ -52,3 +52,47 @@ function countingValleys(steps, path) {
     }
     return count;
 }
+
+// Complete the jumpingOnClouds function below.
+// Emma is playing a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus. She can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus  or . She must avoid the thunderheads. Determine the minimum number of jumps it will take Emma to jump from her starting postion to the last cloud. It is always possible to win the game.
+// For each game, Emma will get an array of clouds numbered  if they are safe or  if they must be avoided. For example,  indexed from . The number on each cloud is its index in the list so she must avoid the clouds at indexes  and . She could follow the following two paths:  or . The first path takes  jumps while the second takes .
+function jumpingOnClouds(c) {
+    //loop thought c using while loop till i > c.length
+        //check if i+2 == 1 ? count++, i + 2
+            // else i++ 
+    let count = 0;
+    let i = 0;
+    while(i < c.length-1) {
+        if (c[i+2] === 0 && (i+2) < c.length) {
+            i += 2;
+        } else {
+            i++;
+        }
+        count++;
+        console.error(i + " " + count)
+    }
+    return count
+}
+
+// Complete the repeatedString function below.
+// Lilah has a string, , of lowercase English letters that she repeated infinitely many times.
+// Given an integer, , find and print the number of letter a's in the first  letters of Lilah's infinite string.
+// For example, if the string  and , the substring we consider is , the first  characters of her infinite string. There are  occurrences of a in the substring.
+function repeatedString(s, n) {
+    //count "a" in s
+    let counter = 0
+    for(let letter of s){
+        if(letter == "a"){
+            counter++;
+        }
+    }
+    //find how many time it repeat and * counter with it
+    let multiple = n / s.length
+    counter *= Math.floor(multiple);
+    //find reminder and loop thought reminder and add to count
+    let remainder = n % s.length
+    for (let i=0; i<remainder;i++){
+        if (s[i] == "a") counter++
+    }
+return counter
+}
