@@ -40,3 +40,42 @@ function lowTemp (temps) {
 }
 
 console.log(lowTemp(inputs));
+
+
+
+// Read inputs from Standard Input (use readline()).
+// Write outputs to Standard Output (use print()).
+
+var n = readline();
+
+let result = readline();
+
+// for (var i = 0; i < n-1; i++) {
+//     let time = readline();
+//     if (result > time) {
+//         result = time;
+//     }
+// }
+
+
+
+for (var i = 0; i < n-1; i++) {
+    let timestr = readline();
+    let time = timestr.split(':');
+    let smallest =  result.split(':');
+    if (smallest[0] > time[0]) {
+        result = timestr;
+    } else if (smallest[0] === time[0]) {
+        if (smallest[1] > time[1]) {
+            result = timestr;
+        } else if (smallest[1] === time[1]) {  
+            if (smallest[1] > time[1]) {
+                result = timestr;
+            } 
+        }
+    }
+}
+
+
+console.log(result);
+
