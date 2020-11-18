@@ -67,3 +67,87 @@ function countDelete(map1, map2) {
     }
     return count;
 }
+
+
+// Complete the isValid function below.
+function isValid(s) {
+    let map = new Object();
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i]
+        if (char in map) {
+            map[char] = map[char] + 1;    
+        } else {
+            map[char] = 1;
+        }
+    }
+    console.error(map);
+    console.error(Object.entries(map));
+    let countMap = new Object();
+    for (let key in map) {
+        let value = map[key];
+        if (value in countMap) {
+            countMap[value] = countMap[value] + 1;    
+        } else {
+            countMap[value] = 1;
+        }
+    }
+    console.error(countMap);
+    console.error(Object.keys(countMap).length);
+    
+    let first = Object.values(countMap)[0];
+    let second = Object.values(countMap)[1]
+    
+    console.error(first + " " + second);
+    
+    if (Object.keys(countMap).length > 2) return "NO"
+    else if (first >= second && second > 1) return "NO"
+    else if (first <= second && second > 1) return "NO"
+
+    return "YES";
+}
+
+// Complete the isValid function below.
+function isValid(s) {
+    let map = new Object();
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i]
+        if (char in map) {
+            map[char] = map[char] + 1;    
+        } else {
+            map[char] = 1;
+        }
+    }
+    console.error(map);
+    console.error(Object.entries(map));
+    let countMap = new Object();
+    for (let key in map) {
+        let value = map[key];
+        if (value in countMap) {
+            countMap[value] = countMap[value] + 1;    
+        } else {
+            countMap[value] = 1;
+        }
+    }
+    console.error(countMap);
+    console.error(Object.values(countMap));
+    console.error(Object.keys(countMap).length);
+    
+    if (Object.keys(countMap).length === 1) return "YES";
+
+    let firstValue = Object.values(countMap)[0];
+    let secondValue = Object.values(countMap)[1]
+    
+    let firstKey = Object.keys(countMap)[0];
+    let secondKey = Object.keys(countMap)[1]
+    
+    if (Object.keys(countMap).length === 2 && (firstValue === 1 || secondValue === 1)) {
+        if (firstValue === 1 && secondKey - firstKey === 1) {
+            return "YES";
+        }
+        if (secondValue === 1 && secondKey - firstKey === 1) {
+            return "YES";
+        }
+    }
+
+    return "NO";
+}
