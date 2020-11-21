@@ -1,8 +1,9 @@
+//300/300 DONE
 function mutateTheArray(n, a) {
     let b = [];
     for (let i = 0; i < a.length; i++) {
         let first;
-        let second;
+        let third;
         (i - 1 < 0) ? first = 0 : first = parseInt(a[i - 1]);
         (i + 1 > n - 1) ? third = 0 : third = parseInt(a[i + 1]);
         let sum = first + a[i] + third;
@@ -53,7 +54,7 @@ function meanGroup(a) {
     return result;
 }
 
-
+//236/300
 function alternatingSort(a) {
     let b = [];
 
@@ -74,33 +75,68 @@ function alternatingSort(a) {
     return true;
 }
 
+//2
+function alternatingSort(a) {
+    let b = [];
+    
+    for (let i = 0; i < (a.length/2) -1; i++) {
+        
+        let first = a[i];
+        let second = a[(a.length-1) - i];
+        
+        console.log(b[b.length-1] + " " + first + " " + second);
+        if (i !== i-1) {
+            if (first >= second || b[b.length-1] >= first) {
+                return false;
+            }
+        } else {
+            if (b[b.length-1] >= first) {
+                return false;
+            }
+        }
+        
+        b.push(first);
+        if (i != (a.length-1) - i) {
+            b.push(second);
+        }
+            
+            console.log(b);
+    }
+    return true;
+}
 
+
+//140/300
 function hashMap(queryType, query) {
     let map = new Object();
     let n = query.length;
     
-    for(let i = 0; i < n; i++) {
+    let result = 0;
+    
+    for (let i = 0; i < n; i++) {
         let type = queryType[i];
         let data = query[i];
-        if (type === "insert") {
+        if (type == "insert") {
             map[data[0]] = data[1];
         }
-        if (type === "get") {
-            
+        if (type == "get") {
+            if (map[data[0]] != null) {
+                result += map[data[0]];
+            }
         }
-        if (type === "addToKey") {
-            let tempMap = new Object();
+        if ( type == "addToKey") {
+            let tempMap = new Object;
             for(let key in map) {
-                tempMap[parseInt(key) + 1] = map[key];
+                tempMap[parseInt(key) + data[0]] = map[key];
             }
             map = tempMap;
         }
-        if (type === "addToValue") {
-            for(let key in map) {
+        if ( type == "addToValue") {
+            for (let key in map) {
                 map[key] = map[key] + data[0];
             }
         }
-        console.log(map);
+    console.log(map);
     }
-
+    return result;
 }
