@@ -151,3 +151,62 @@ function isValid(s) {
 
     return "NO";
 }
+
+
+function mergeStrings(s1, s2) {
+    let obj1 = strToObj(s1);
+    let obj2 = strToObj(s2);
+    console.log(obj1)
+    console.log(obj2)
+    let minLength;
+    let maxLength; 
+    if (s1.length > s2.length) {
+        maxLength = s1.length;
+        minLength = s2.length;
+    } else {
+        maxLength = s2.length;
+        minLength = s1.length;
+    }
+    console.log(maxLength);
+    console.log(minLength);
+    let result = "";
+    for(let i = 0; i < maxLength; i++) {
+        if (i < minLength) {
+            let str1 = s1[i];
+            let str2 = s2[i];
+            if (obj1[str1] < obj2[str2]) {
+                result += str1;
+            } else if (obj1[str1] == obj[str2]) {
+                if (str1 < str2) {
+                    result += str1;
+                } else {
+                    result += str2;
+                }
+            } else {
+                result += str2;
+            }
+        }
+        result += (s1.length > s2.length) ? s1[i] : s2[i];
+    }
+    return result;
+}
+
+function strToObj(s1) {
+    let map = new Object();
+    
+    for (let i = 0; i < s1.length; i++) {
+        let char = s1[i]; 
+        if (char in map) {
+            map[char] = map[char] + 1;
+        } else {
+            map[char] = 1;
+        }
+    }
+    
+    return map;
+}
+// For s1 = "dce" and s2 = "cccbd", the output should be
+// mergeStrings(s1, s2) = "dcecccbd".
+
+// For example, if s1 = "super" and s2 = "tower", the result should be merge(s1, s2) = "stouperwer".
+

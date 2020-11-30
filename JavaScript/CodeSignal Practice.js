@@ -75,35 +75,38 @@ function alternatingSort(a) {
     return true;
 }
 
-//2
+//2 236/300
 function alternatingSort(a) {
     let b = [];
-    
-    for (let i = 0; i < (a.length/2) -1; i++) {
-        
-        let first = a[i];
-        let second = a[(a.length-1) - i];
-        
-        console.log(b[b.length-1] + " " + first + " " + second);
-        if (i !== i-1) {
-            if (first >= second || b[b.length-1] >= first) {
-                return false;
-            }
-        } else {
-            if (b[b.length-1] >= first) {
-                return false;
-            }
+    let i = 0;
+    let j = a.length - 1;
+    let n = a.length;
+    while (i < j) {
+        let num1 = a[i];
+        let num2 = a[j];
+        let prevNum = b[b.length-1];
+        console.log(prevNum + " " + num1 + " " + num2);
+        if (num1 >= num2 || prevNum >= num1) {
+            console.log("fasle1")
+            return false;
         }
-        
-        b.push(first);
-        if (i != (a.length-1) - i) {
-            b.push(second);
-        }
-            
-            console.log(b);
+        b.push(num1);
+        b.push(num2);
+        i++;
+        j--;
     }
+    if (n % 2 != 0) {
+        // b.push(a[i]);
+        console.log("fasle2 " + a[i] + " " + b[b.length-1])
+        console.log(b);
+        if(a[i] <= b[b.length-1]) {
+            return false;
+        }
+    }
+    console.log(b);
     return true;
 }
+
 
 
 //140/300
