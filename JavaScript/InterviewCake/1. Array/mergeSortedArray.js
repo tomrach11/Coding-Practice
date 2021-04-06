@@ -6,7 +6,7 @@ function mergeSortedArrays(arr1, arr2) {
 
     for(let i = 0; i < n; i++) {
         //make sure there are still number in arr1 and there is nothing to compare to arr2
-        if (index1 < arr1.length && index2 >= arr2.length - 1 ||
+        if (index1 < arr1.length && index2 >= arr2.length ||
             arr1[index1] < arr2[index2]) {
                 result.push(arr1[index1]);
                 index1++;
